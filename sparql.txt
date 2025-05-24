@@ -64,9 +64,10 @@ SELECT ?nome {
 18 - Que aprendizes estudam "Programação"?
 
 PREFIX : <http://www.semanticweb.org/gonca/ontologies/2025/historia_teste/>
-SELECT ?aprendiz {
+SELECT ?nome {
     ?aprendiz a :Aprendiz ;
-              :aprende ?d .
+                :aprende ?disc ;
+                :nome ?nome .
     ?disc :nome "Programação" .
 }
 
