@@ -75,7 +75,6 @@ número de alunos)
 
 
 PREFIX : <http://www.semanticweb.org/gonca/ontologies/2025/historia_teste/>
-
 SELECT ?disc (COUNT(?aprendiz) AS ?naprendiz)
 WHERE {
   ?aprendiz a :Aprendiz .
@@ -89,8 +88,7 @@ Período, número de conceitos)
 
 
 PREFIX : <http://www.semanticweb.org/gonca/ontologies/2025/historia_teste/>
-
-SELECT ?periodo (COUNT(?conceito) AS ?numConceitos)
+SELECT ?periodo (COUNT(?conceito) AS ?nConc)
 WHERE {
   ?conc a :Conceito .
   ?conc :surgeEm ?periodo .
@@ -102,8 +100,7 @@ GROUP BY ?periodo
 Conceito, Lista de títulos de obras)
 
 PREFIX : <http://www.semanticweb.org/gonca/ontologies/2025/historia_teste/>
-
-SELECT ?conc (GROUP_CONCAT(?titulo; separator=", ") AS ?titulosObras)
+SELECT ?conc (GROUP_CONCAT(?titulo; separator=", ") AS ?titles)
 WHERE {
   ?obra a :Obra .
   ?obra :explica ?conc .
@@ -115,19 +112,17 @@ GROUP BY ?conc
 22.
 
 PREFIX : <http://www.semanticweb.org/gonca/ontologies/2025/historia_teste/>
-
-SELECT ?disc (GROUP_CONCAT(?nomeAprendiz; separator=", ") AS ?listaAprendizes)
+SELECT ?disc (GROUP_CONCAT(?naprendiz; separator=", ") AS ?list)
 WHERE {
   ?aprendiz a :Aprendiz .
   ?aprendiz :aprende ?disc .
-  ?aprendiz :nome ?nomeAprendiz .
+  ?aprendiz :nome ?naprendiz .
 }
 GROUP BY ?disc
 
 
 23.
 PREFIX : <http://www.semanticweb.org/gonca/ontologies/2025/historia_teste/>
-
 SELECT ?esc (COUNT(?aprendiz) AS ?naprendiz)
 WHERE {
   ?aprendiz :idade ?idade .
