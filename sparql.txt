@@ -88,10 +88,10 @@ Período, número de conceitos)
 
 
 PREFIX : <http://www.semanticweb.org/gonca/ontologies/2025/historia_teste/>
-SELECT ?periodo (COUNT(?conceito) AS ?nConc)
+SELECT ?periodo (COUNT(?conceito) AS ?nconc)
 WHERE {
-  ?conc a :Conceito .
-  ?conc :surgeEm ?periodo .
+  ?conceito :surgeEm ?periodo .
+  ?periodo :nome ?periodo .
 }
 GROUP BY ?periodo
 
