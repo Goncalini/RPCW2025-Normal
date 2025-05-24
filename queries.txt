@@ -109,7 +109,9 @@ WHERE {
 GROUP BY ?conc
 
 
-22.
+22 - Quais os aprendizes que frequentam cada uma das disciplinas? (Resultado será uma lista de
+pares: Disciplina, Lista dos nomes dos aprendizes que frequentam a disciplina)
+
 
 PREFIX : <http://www.semanticweb.org/gonca/ontologies/2025/historia_teste/>
 SELECT ?disc (GROUP_CONCAT(?naprendiz; separator=", ") AS ?list)
@@ -121,7 +123,10 @@ WHERE {
 GROUP BY ?disc
 
 
-23.
+23 - Qual a distribuição de aprendizes por escalões etários? (Resultado será uma lista de pares:
+Escalão etário, número aprendizes nesse escalão); Considera os seguintes escalões: [17, 34], [35,
+44], [45, 54], [55, 64], [65, 74], [75, 100]. 
+
 PREFIX : <http://www.semanticweb.org/gonca/ontologies/2025/historia_teste/>
 SELECT ?esc (COUNT(?aprendiz) AS ?naprendiz)
 WHERE {
